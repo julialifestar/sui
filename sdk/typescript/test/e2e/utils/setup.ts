@@ -58,12 +58,8 @@ type ProviderType = 'rpc' | 'rpc-with-cache';
 
 export function getProvider(providerType: ProviderType): JsonRpcProvider {
   return providerType === 'rpc'
-    ? new JsonRpcProvider(DEFAULT_FULLNODE_URL, false, LATEST_RPC_API_VERSION)
-    : new JsonRpcProviderWithCache(
-        DEFAULT_FULLNODE_URL,
-        false,
-        LATEST_RPC_API_VERSION
-      );
+    ? new JsonRpcProvider(DEFAULT_FULLNODE_URL, false)
+    : new JsonRpcProviderWithCache(DEFAULT_FULLNODE_URL, false);
 }
 
 export async function setup(providerType: ProviderType = 'rpc') {
